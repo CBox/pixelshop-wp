@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pixelshop\n"
-"POT-Creation-Date: 2015-12-04 17:25+0200\n"
-"PO-Revision-Date: 2015-12-04 17:25+0200\n"
+"POT-Creation-Date: 2015-12-05 23:51+0200\n"
+"PO-Revision-Date: 2015-12-05 23:51+0200\n"
 "Last-Translator: hello@cboxagency.com <hello@cboxagency.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: _;_e;__\n"
+"X-Poedit-KeywordsList: _;_e;__;esc_html__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: W:\\wamp\\www\\startups\\cboxagency\\wp-content"
 "\\plugins\\pixelshop\n"
@@ -46,11 +46,15 @@ msgstr "שמור מפתח"
 msgid "Export"
 msgstr "ייצוא"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:131
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:55
+msgid "API Key is invalid or not exists."
+msgstr "מפתח ה API לא תקין או אינו קיים"
+
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:153
 msgid "Pixelshop Export Products"
 msgstr "פיקסל שופ ייצוא מוצרים"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:137
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:159
 msgid ""
 "We will export all your products to <b>Pixelshop.io</b> so you will be able "
 "to connect products to social posts, let's start it's a going to be a click "
@@ -60,23 +64,29 @@ msgstr ""
 "b> אחרי הייצוא תוכל לשייך מוצרים לפוסטים שתרצה בקלות ומהירות, אתה תקבל את כל "
 "המידע הרלוונטי על המוצר, בוא נתחיל - אתה רק במרחק לחיצה."
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:144
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:165
 msgid "Click To Export Products"
 msgstr "לחץ לייצוא המוצרים"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:147
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:168
 msgid "WooCommerce not installed or not active, Please retry again later."
 msgstr "WooCommerce לא מותקן או אינו פעיל, נא נסה שנית מאוחר יותר"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:149
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:170
 msgid "You have got the add api key before export"
 msgstr "חובה למלא מפתח API לפני ייצוא לפיקסל שופ"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:151
-msgid "It's Done! We have imported "
-msgstr "סיימנו! כל המוצרים יוצאו בהצלחה"
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:172
+#, php-format
+msgid "It's Done! We have imported %d products successfully."
+msgstr "סיימנו! הצלחנו לייבא %d מוצרים חדשים"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:153
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:174
+#, php-format
+msgid "There is %d products exists."
+msgstr "נמצאו %d מוצרים שכבר קיימים במערכת"
+
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:177
 msgid ""
 "You can export all your products each 24 hours<br /> Upgrade for full sync "
 "between WooCommerce to Pixelshop"
@@ -84,6 +94,6 @@ msgstr ""
 "באפשרותך לייצא את כל המוצרים אחת ל24 שעות <br />שדרג את החשבון לסנכרון מלא "
 "בין החנות לפיקסל שופ"
 
-#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:162
+#: W:\wamp\www\startups\cboxagency\wp-content\plugins\pixelshop/core/controllers/export.php:186
 msgid "Process..."
 msgstr "בתהליך..."

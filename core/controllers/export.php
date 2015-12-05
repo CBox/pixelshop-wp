@@ -26,7 +26,7 @@ class pixelshop_export
 		// actions
 		add_action('admin_menu', array($this,'admin_menu'), 11, 0);
 
-		$this->export_products();
+		add_action('init', array($this, 'export_products'));
 	}
 	
 	
@@ -42,6 +42,19 @@ class pixelshop_export
 	{
 		// add page
 		$page = add_submenu_page('pixelshop', __('Export','pixelshop'), __('Export','pixelshop'), 'manage_options', 'pixelshop-export', array($this, 'html'));
+	}
+
+	/**
+	 * api key invalid
+	 * @return string
+	 */
+	function api_key_invalid()
+	{
+		?>
+		<div class="error notice">
+			<p><?php _e( 'API Key is invalid or not exists.', 'pixelshop' ); ?></p>
+		</div>
+		<?php
 	}
 
 	/*
@@ -95,21 +108,28 @@ class pixelshop_export
 					"thumb"			=> $thumb[0],
 					"tags"			=> '',
 				];
-				
+
 				if ( ! isset($product->get_tags()->errors) )
 					$products[$i]["tags"] = $product->get_tags();
 			}
 
 			$export = $api->export->products($products);
 
-			add_option( 'pixelshop_message', $export, '', 'yes' );
-
-			$time = 60*60*24;
-
-			if( get_option('pxs_last_export') === false )
-				add_option( 'pxs_last_export', time() + $time, '', 'no' );
+			if( isset($export['error']) )
+			{
+				add_action( 'admin_notices', array($this, 'api_key_invalid') );
+			}			
 			else
-				update_option( 'pxs_last_export', time() + $time );
+			{
+				add_option( 'pixelshop_message', $export, '', 'yes' );
+
+				$time = 60*60*24;
+
+				if( get_option('pxs_last_export') === false )
+					add_option( 'pxs_last_export', time() + $time, '', 'no' );
+				else
+					update_option( 'pxs_last_export', time() + $time );
+			}
 		}
 	}
 	
@@ -147,13 +167,13 @@ class pixelshop_export
 					<div class="pixelshop-error"><?php _e("WooCommerce not installed or not active, Please retry again later.", 'pixelshop'); ?></div>
 				<?php } else if( $api_key === false )  { ?>
 					<div class="pixelshop-error"><?php _e('You have got the add api key before export', 'pixelshop'); ?></div>
-				<?php } else if( $message !== false ) { ?>
-					<div class="pixelshop-success"><?php _e("It's Done! We have imported " . intval($message['success']) . " products successfully.", 'pixelshop'); ?></div>
-					<?php if( isset($message['exists']) ) { ?>
-						<div class="pixelshop-error"><?php _e("There is " . intval($message['exists']) . " products exists.", 'pixelshop'); ?></div>
+				<?php } else if( $message !== false ) { $count = intval($message['success']); ?>
+					<div class="pixelshop-success"><?php printf( esc_html__( "It's Done! We have imported %d products successfully.", 'pixelshop' ), $count ); ?></div>
+					<?php if( $message['exists'] > 0 ) { $count = intval($message['exists']); ?>
+						<div class="pixelshop-error"><?php printf( esc_html__( "There is %d products exists.", 'pixelshop' ), $count ); ?></div>
 					<?php } ?>
 				<?php } else if( time() < $last_export ) { ?>
-					<div class="pixelshop-error"><?php _e("You can export all your products each 24 hours<br /> Upgrade for full sync between WooCommerce to Pixelshop", 'pixelshop'); ?></div>
+					<div class="pixelshop-error"><?php _("You can export all your products each 24 hours<br /> Upgrade for full sync between WooCommerce to Pixelshop", 'pixelshop'); ?></div>
 				<?php } ?>
 			</div>
 		</div>
