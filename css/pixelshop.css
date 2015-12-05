@@ -1,0 +1,82 @@
+.pixelshop-box {
+	background-color: #fff;
+	border:1px solid #e5e5e5;
+	padding: 0;
+}
+.pixelshop-box h3 {
+	margin: 0 0 10px 0;
+	padding: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.pixelshop-box .pixelshop-content {
+	padding: 20px;
+}
+.pixelshop-box .pixelshop-content input[type="text"] {
+	width: 100%;
+	padding: 5px;
+}
+.pixelshop-box .pixelshop-content#post-body-content {
+	width: 95%;
+}
+.pixelshop-box .pixelshop-content input[type='submit'] {
+	margin-top: 10px;
+	padding: 15px 30px;
+	line-height: 0;
+	height: auto;
+}
+
+.pixelshop-export {
+	background-color: #fff;
+	border:1px solid #e5e5e5;
+	padding: 50px;
+	text-align: center;
+}
+.pixelshop-export p {
+	font-size: 14px;
+	max-width: 600px;
+	margin:0 auto;
+	color: gray;
+	line-height: 25px;
+}
+.pixelshop-export input[type="submit"] {
+	background: #5463DF;
+    border:0;
+	border-radius: 2px;
+	padding:10px 20px;
+	color: #fff;
+	margin-top: 40px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+.pixelshop-export input[type="submit"]:hover {
+	background: #3C4696;
+}
+.pixelshop-export input[type="submit"][disabled=disabled] {
+	opacity: 0.6;
+	cursor: wait;
+}
+/*.button-primary {
+	
+}*/
+
+.pixelshop-success,
+.pixelshop-error {
+	color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    display: inline-block;
+    margin:25px auto;
+    padding: 20px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+	line-height: 30px;
+}
+.pixelshop-success {
+	color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.clearfix {
+	clear: both;
+}
