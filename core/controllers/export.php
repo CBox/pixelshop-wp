@@ -110,7 +110,17 @@ class pixelshop_export
 				];
 
 				if ( ! isset($product->get_tags()->errors) )
-					$products[$i]["tags"] = $product->get_tags();
+				{
+					$tags = wp_get_object_terms($the_query->post->ID, 'product_tag');
+					$tags_list = '';
+
+					foreach ($tags as $tag)
+					{
+						$tags_list .= $tag->name . ', ';
+					}
+
+					$products[$i]["tags"] = substr($tags_list, 0, -2);
+				}
 			}
 
 			$export = $api->export->products($products);
@@ -173,7 +183,7 @@ class pixelshop_export
 						<div class="pixelshop-error"><?php printf( esc_html__( "There is %d products exists.", 'pixelshop' ), $count ); ?></div>
 					<?php } ?>
 				<?php } else if( time() < $last_export ) { ?>
-					<div class="pixelshop-error"><?php _("You can export all your products each 24 hours<br /> Upgrade for full sync between WooCommerce to Pixelshop", 'pixelshop'); ?></div>
+					<div class="pixelshop-error"><?php _e("You can export all your products each 24 hours<br /> Upgrade for full sync between WooCommerce to Pixelshop", 'pixelshop'); ?></div>
 				<?php } ?>
 			</div>
 		</div>
